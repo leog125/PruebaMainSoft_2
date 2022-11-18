@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PruebaMainSoft_2.Models.AutoresHasLibro>
+
+@{
+    ViewData["Title"] = "Autores y libros";
+}
+
+<h1>Autores y libros</h1>
+
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Autores)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.LibrosIs8nNavigation)*@
+                Libros
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autores.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibrosIs8nNavigation.Titulo)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.AutoresId">Edit</a> |*@
+                <a asp-action="Details" asp-route-id="@item.AutoresId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.AutoresId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
